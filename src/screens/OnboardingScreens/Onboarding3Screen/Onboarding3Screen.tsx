@@ -2,58 +2,49 @@ import React from 'react';
 import {Image} from 'react-native';
 import {observer} from 'mobx-react';
 
-import {OnboardingScaffold} from '../components/OnboardingScaffold';
-import {OnboardingBottomBar} from '../components/OnboardingBottomBar';
-import {OnboardingContent} from '../components/OnboardingContent';
-import {ItalicAccentTitle} from '../components/ItalicAccentTitle';
-import {HighlightText} from '../components/HighlightText';
-import {useOnboardingHandlers} from '../useOnboardingHandlers';
-import {styles} from './styles';
-
-// Screen 3 "Cards" composition is a flat illustration in Figma
-// (`3699:23649`). The asset was re-exported at 1572×925 (~4× density
-// of the natural 369×217 layout slot).
-
-const cardsImage = require('../../../assets/onboarding/screen-3-cards.png');
+import {OnboardingScaffold} from './components/OnboardingScaffold';
+import {OnboardingBottomBar} from './components/OnboardingBottomBar';
+import {OnboardingContent} from './components/OnboardingContent';
+import {ItalicAccentTitle} from './components/ItalicAccentTitle';
+import {HighlightText} from './components/HighlightText';
+import {useOnboardingHandlers} from './useOnboardingHandlers';
 
 export const Onboarding3Screen: React.FC = observer(() => {
-  const {l10n, next, goBack} = useOnboardingHandlers(3);
-  const t = l10n.onboarding;
+  const {next, goBack} = useOnboardingHandlers(3);
+
   return (
     <OnboardingScaffold
       step={3}
       illustration={
         <Image
-          source={cardsImage}
-          style={styles.cards}
+          source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
+          style={{ width: 110, height: 110 }}
           resizeMode="contain"
-          accessibilityElementsHidden
-          importantForAccessibility="no"
         />
       }
       content={
         <OnboardingContent
-          eyebrow={t.screen3.eyebrow}
+          eyebrow="INVESTIGACIÓN Y SABER"
           title={
             <ItalicAccentTitle
-              title={t.screen3.title}
-              accent={t.screen3.titleAccent}
+              title="Herramientas para la "
+              accent="Gestión del Conocimiento"
             />
           }
           body={
             <HighlightText
-              body={t.screen3.body}
-              phrases={[t.screen3.highlight]}
+              body="Accede a recursos de análisis documental, síntesis de saberes y procesamiento de información académica al servicio del pueblo."
+              phrases={['análisis documental', 'servicio del pueblo']}
             />
           }
         />
       }
       bottomBar={
         <OnboardingBottomBar
-          primaryLabel={t.screen3.cta}
+          primaryLabel="Continuar"
           onPrimary={next}
           onBack={goBack}
-          backAccessibilityLabel={t.back}
+          backAccessibilityLabel="Atrás"
         />
       }
     />
