@@ -1,7 +1,7 @@
 import React from 'react';
+import {Image} from 'react-native';
 import {observer} from 'mobx-react';
 
-import {Screen1Hero} from '../../assets/onboarding/illustrations';
 import {OnboardingScaffold} from './components/OnboardingScaffold';
 import {OnboardingBottomBar} from './components/OnboardingBottomBar';
 import {OnboardingContent} from './components/OnboardingContent';
@@ -10,30 +10,41 @@ import {HighlightText} from './components/HighlightText';
 import {useOnboardingHandlers} from './useOnboardingHandlers';
 
 export const Onboarding1Screen: React.FC = observer(() => {
-  const {l10n, next} = useOnboardingHandlers(1);
-  const t = l10n.onboarding;
+  const {next} = useOnboardingHandlers(1);
+
   return (
     <OnboardingScaffold
       step={1}
-      illustration={<Screen1Hero width={112} height={112} />}
+      illustration={
+        <Image
+          source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
+          style={{ width: 120, height: 120 }}
+          resizeMode="contain"
+        />
+      }
       content={
         <OnboardingContent
-          eyebrow={t.screen1.eyebrow}
+          eyebrow="BIENVENIDA INSTITUCIONAL"
           title={
             <ItalicAccentTitle
-              title={t.screen1.title}
-              accent={t.screen1.titleAccent}
+              title="Universidad Campesina de Venezuela "
+              accent="Argimiro Gabaldón"
             />
           }
-          body={<HighlightText body={t.screen1.body} phrases={[]} />}
+          body={
+            <HighlightText 
+              body="Plataforma soberana de inteligencia artificial para la investigación, el estudio y el desarrollo académico del campo venezolano." 
+              phrases={['Plataforma soberana', 'desarrollo académico']} 
+            />
+          }
         />
       }
       bottomBar={
         <OnboardingBottomBar
-          primaryLabel={t.screen1.cta}
+          primaryLabel="Comenzar"
           onPrimary={next}
           showBack={false}
-          backAccessibilityLabel={t.back}
+          backAccessibilityLabel="Atrás"
         />
       }
     />
