@@ -1,8 +1,7 @@
 import React, {useContext} from 'react';
-import {View} from 'react-native';
+import {View, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import {SplashMark} from '../../../assets/onboarding/illustrations';
 import {useTheme} from '../../../hooks';
 import {L10nContext} from '../../../utils';
 import {ROUTES} from '../../../utils/navigationConstants';
@@ -11,9 +10,8 @@ import {createStyles} from './styles';
 const SPLASH_MIN_DWELL_MS = 600;
 
 /**
- * Brand splash — post-hydration, pre-Onboarding-1. Renders the
- * 112×112 mark from Figma `884:28352` then transitions after
- * `SPLASH_MIN_DWELL_MS`.
+ * Brand splash — UCVAG (Universidad Campesina de Venezuela Argimiro Gabaldón).
+ * Renders the institutional logo then transitions after `SPLASH_MIN_DWELL_MS`.
  */
 export const SplashScreen: React.FC = () => {
   const navigation = useNavigation<any>();
@@ -30,9 +28,13 @@ export const SplashScreen: React.FC = () => {
 
   return (
     <View testID="onboarding-splash" style={styles.root}>
-      <SplashMark
-        width={112}
-        height={112}
+      <Image
+        source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
+        style={{
+          width: 220,
+          height: 220,
+        }}
+        resizeMode="contain"
         accessibilityLabel={l10n.onboarding.splash.brand}
         accessibilityRole="image"
       />
