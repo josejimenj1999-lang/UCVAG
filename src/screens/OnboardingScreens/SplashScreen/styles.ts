@@ -6,8 +6,8 @@ export const createStyles = (theme: Theme) =>
   StyleSheet.create({
     root: {
       flex: 1,
-      // Figma `Color/Background/Muted` (#fafafa) — maps to `colors.surfaceVariant`.
-      backgroundColor: theme.colors.surfaceVariant,
+      // Identidad visual UCVAG: Fondo negro institucional soberano
+      backgroundColor: '#000000',
       alignItems: 'center',
       justifyContent: 'center',
     },
