@@ -6,7 +6,8 @@ export const createStyles = (theme: Theme) =>
   StyleSheet.create({
     safeArea: {
       flex: 1,
-      backgroundColor: theme.colors.surface,
+      // Identidad UCVAG: Fondo seguro negro institucional
+      backgroundColor: '#000000',
     },
     container: {
       padding: 16,
@@ -18,7 +19,8 @@ export const createStyles = (theme: Theme) =>
     card: {
       marginVertical: 8,
       borderRadius: 12,
-      backgroundColor: theme.colors.background,
+      // Tarjetas con fondo sobrio adaptado al entorno institucional
+      backgroundColor: '#121212',
     },
     settingItemContainer: {
       marginVertical: 16,
@@ -40,16 +42,19 @@ export const createStyles = (theme: Theme) =>
     },
     settingIcon: {
       marginRight: 8,
+      // Acento de color institucional rojo para iconos destacados
+      color: '#CC0000',
     },
     textLabel: {
-      color: theme.colors.onSurface,
+      color: '#FFFFFF',
+      fontWeight: '600',
     },
     textDescription: {
-      color: theme.colors.onSurfaceVariant,
-      //marginTop: 4,
+      color: '#B0B0B0',
     },
     divider: {
       marginVertical: 12,
+      backgroundColor: '#2A2A2A',
     },
     slider: {
       //marginVertical: 8,
@@ -57,18 +62,17 @@ export const createStyles = (theme: Theme) =>
     },
     textInput: {
       marginVertical: 8,
+      backgroundColor: '#1E1E1E',
+      color: '#FFFFFF',
     },
     invalidInput: {
-      borderColor: theme.colors.error,
+      borderColor: '#CC0000',
       borderWidth: 1,
     },
     errorText: {
-      color: theme.colors.error,
+      color: '#CC0000',
       marginTop: 4,
     },
-    // Cap the value side of a settings row so a long value label ellipsizes
-    // inside the button instead of squeezing the flex title/description
-    // column into a sliver.
     menuContainer: {
       position: 'relative',
       flexShrink: 1,
@@ -78,9 +82,6 @@ export const createStyles = (theme: Theme) =>
       minWidth: 100,
       maxWidth: '100%',
     },
-    // A control too wide to share its row (e.g. the draft-model picker, whose
-    // values are model filenames) sits under the title/description instead.
-    // Also keeps the menu anchor at the row's left edge, on-screen.
     fullRowControl: {
       marginTop: 8,
       alignSelf: 'flex-start',
@@ -105,16 +106,16 @@ export const createStyles = (theme: Theme) =>
     },
     advancedAccordion: {
       height: 55,
-      //backgroundColor: theme.colors.surface,
+      backgroundColor: '#121212',
     },
     accordionTitle: {
       fontSize: 14,
-      color: theme.colors.secondary,
+      color: '#CC0000',
+      fontWeight: 'bold',
     },
-    // Floor, not a fixed width: dropdown items size to their longest label
-    // (the outer menu clamps at 90% screen and item titles ellipsize past it).
     menu: {
       minWidth: 170,
+      backgroundColor: '#1E1E1E',
     },
     linkContainer: {
       flexDirection: 'row',
