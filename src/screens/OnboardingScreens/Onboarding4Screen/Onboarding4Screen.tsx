@@ -1,50 +1,53 @@
 import React from 'react';
-import {View} from 'react-native';
+import {Image, View} from 'react-native';
 import {observer} from 'mobx-react';
 
-import {OnboardingScaffold} from '../components/OnboardingScaffold';
-import {OnboardingBottomBar} from '../components/OnboardingBottomBar';
-import {OnboardingContent} from '../components/OnboardingContent';
-import {ItalicAccentTitle} from '../components/ItalicAccentTitle';
-import {HighlightText} from '../components/HighlightText';
-import {PhoneWithShield} from '../illustrations/PhoneWithShield';
-import {useOnboardingHandlers} from '../useOnboardingHandlers';
+import {OnboardingScaffold} from './components/OnboardingScaffold';
+import {OnboardingBottomBar} from './components/OnboardingBottomBar';
+import {OnboardingContent} from './components/OnboardingContent';
+import {ItalicAccentTitle} from './components/ItalicAccentTitle';
+import {HighlightText} from './components/HighlightText';
+import {useOnboardingHandlers} from './useOnboardingHandlers';
 import {styles} from './styles';
 
 export const Onboarding4Screen: React.FC = observer(() => {
-  const {l10n, next, goBack} = useOnboardingHandlers(4);
-  const t = l10n.onboarding;
+  const {next, goBack} = useOnboardingHandlers(4);
+
   return (
     <OnboardingScaffold
       step={4}
       illustration={
         <View style={styles.illustrationWrap}>
-          <PhoneWithShield width={85} />
+          <Image
+            source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
+            style={{ width: 110, height: 110 }}
+            resizeMode="contain"
+          />
         </View>
       }
       content={
         <OnboardingContent
-          eyebrow={t.screen4.eyebrow}
+          eyebrow="SOBERANÍA TECNOLÓGICA"
           title={
             <ItalicAccentTitle
-              title={t.screen4.title}
-              accent={t.screen4.titleAccent}
+              title="Privacidad y Control "
+              accent="Absoluto de Datos"
             />
           }
           body={
             <HighlightText
-              body={t.screen4.body}
-              phrases={[t.screen4.highlight]}
+              body="Garantizamos la seguridad de la información institucional con modelos locales y total independencia tecnológica."
+              phrases={['independencia tecnológica', 'seguridad de la información']}
             />
           }
         />
       }
       bottomBar={
         <OnboardingBottomBar
-          primaryLabel={t.screen4.cta}
+          primaryLabel="Continuar"
           onPrimary={next}
           onBack={goBack}
-          backAccessibilityLabel={t.back}
+          backAccessibilityLabel="Atrás"
         />
       }
     />
