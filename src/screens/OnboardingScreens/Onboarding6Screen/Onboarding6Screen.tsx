@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Image} from 'react-native';
 import {observer} from 'mobx-react';
 
 import {modelStore, uiStore} from '../../../store';
@@ -8,13 +8,12 @@ import {
   entryId,
   resolvePalForTopic,
 } from '../../../store/onboarding/onboardingPals';
-import {OnboardingScaffold} from '../components/OnboardingScaffold';
-import {OnboardingBottomBar} from '../components/OnboardingBottomBar';
-import {ItalicAccentTitle} from '../components/ItalicAccentTitle';
-import {DeviceInfoChip} from '../components/DeviceInfoChip';
-import {ModelRadioGroup, type ModelOption} from '../components/ModelRadioGroup';
-import {PipMascot} from '../illustrations/PipMascot';
-import {useOnboardingHandlers} from '../useOnboardingHandlers';
+import {OnboardingScaffold} from './components/OnboardingScaffold';
+import {OnboardingBottomBar} from './components/OnboardingBottomBar';
+import {ItalicAccentTitle} from './components/ItalicAccentTitle';
+import {DeviceInfoChip} from './components/DeviceInfoChip';
+import {ModelRadioGroup, type ModelOption} from './components/ModelRadioGroup';
+import {useOnboardingHandlers} from './useOnboardingHandlers';
 import {createStyles} from './styles';
 
 const formatSize = (bytes: number | undefined): string => {
@@ -29,19 +28,13 @@ const formatSize = (bytes: number | undefined): string => {
 };
 
 export const Onboarding6Screen: React.FC = observer(() => {
-  const {l10n, goBack, finish, isFinishing} = useOnboardingHandlers(6);
+  const {goBack, finish, isFinishing} = useOnboardingHandlers(6);
   const theme = useTheme();
   const styles = createStyles(theme);
-  const t = l10n.onboarding;
   const topic = uiStore.onboardingState.selectedTopic;
   const pal = resolvePalForTopic(topic);
   const selectedId = uiStore.onboardingState.selectedModelId;
 
-  // Pre-select the Recommended (Balanced) tier on first arrival so the
-  // Download CTA is enabled immediately. Re-seed when the topic (and
-  // thus the pal) changes — the previously-picked model belongs to a
-  // different pal's list and would otherwise leave the radio in an
-  // unselectable state. User taps after that override the seed.
   useEffect(() => {
     const inPalList = pal.models.some(m => entryId(m) === selectedId);
     if (!inPalList) {
@@ -50,12 +43,12 @@ export const Onboarding6Screen: React.FC = observer(() => {
         uiStore.setOnboardingModelId(entryId(recommended));
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pal.key]);
+  }, [pal.key, selectedId]);
 
   const canFinish = selectedId !== null && !isFinishing;
   const isDownloaded = (id: string): boolean =>
     !!modelStore.models.find(m => m.id === id)?.isDownloaded;
+  
   const options: ModelOption[] = pal.models.map(entry => {
     const id = entryId(entry);
     const sizeSegment = formatSize(entry.sizeBytes);
@@ -65,29 +58,28 @@ export const Onboarding6Screen: React.FC = observer(() => {
       segments.push(sizeSegment);
     }
     if (downloaded) {
-      segments.push(t.screen6.downloaded);
+      segments.push('Descargado');
     }
     return {
       id,
-      title: t.screen6.modelTier[entry.tier],
+      title: `Modelo ${entry.tier}`,
       subtitle: segments.join(' · '),
       recommended: entry.recommended,
     };
   });
+
   const pickedEntry = selectedId
     ? pal.models.find(m => entryId(m) === selectedId)
     : undefined;
   const pickedDownloaded = selectedId ? isDownloaded(selectedId) : false;
   const sizeLabel = formatSize(pickedEntry?.sizeBytes);
-  const palBody = t.screen6.pal[pal.key].body;
+
   const primaryLabel = pickedDownloaded
-    ? t.screen6.useTemplate.replace('{{name}}', pal.name)
+    ? `Iniciar con ${pal.name}`
     : sizeLabel
-      ? t.screen6.ctaTemplate
-          .replace('{{name}}', pal.name)
-          .replace('{{size}}', sizeLabel)
-      : t.screen6.cta.replace('{{name}}', pal.name);
-  const subtitle = t.screen6.subtitleTemplate.replace('{{name}}', pal.name);
+      ? `Descargar y Configurar (${sizeLabel})`
+      : `Configurar ${pal.name}`;
+
   return (
     <OnboardingScaffold
       step={6}
@@ -95,20 +87,26 @@ export const Onboarding6Screen: React.FC = observer(() => {
       content={
         <>
           <View style={styles.header}>
-            <PipMascot width={66} />
-            <ItalicAccentTitle title={pal.name} align="center" />
-            <Text style={styles.palBody}>{palBody}</Text>
+            <Image
+              source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
+              style={{ width: 75, height: 75, marginBottom: 10 }}
+              resizeMode="contain"
+            />
+            <ItalicAccentTitle title="Motor de IA UCVAG" align="center" />
+            <Text style={styles.palBody}>
+              Selecciona el modelo de procesamiento local adecuado para tu dispositivo y comienza tu experiencia académica soberana.
+            </Text>
           </View>
           <DeviceInfoChip
-            ramSuffix={t.screen6.deviceRamSuffix}
-            freeSuffix={t.screen6.deviceFreeSuffix}
+            ramSuffix="RAM disponible"
+            freeSuffix="Libre"
           />
           <View style={styles.options}>
-            <Text style={styles.subtitle}>{subtitle}</Text>
+            <Text style={styles.subtitle}>Selecciona la capacidad del modelo:</Text>
             <ModelRadioGroup
               options={options}
               selectedId={selectedId}
-              recommendedBadgeLabel={t.screen6.recommended}
+              recommendedBadgeLabel="Recomendado"
               onSelect={id => uiStore.setOnboardingModelId(id)}
             />
           </View>
@@ -122,7 +120,7 @@ export const Onboarding6Screen: React.FC = observer(() => {
           primaryDisabled={!canFinish}
           onPrimary={finish}
           onBack={goBack}
-          backAccessibilityLabel={t.back}
+          backAccessibilityLabel="Atrás"
         />
       }
     />
