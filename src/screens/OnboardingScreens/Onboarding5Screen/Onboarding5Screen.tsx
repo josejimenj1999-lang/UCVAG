@@ -6,23 +6,34 @@ import {observer} from 'mobx-react';
 import {uiStore} from '../../../store';
 import {useTheme} from '../../../hooks';
 import type {TopicKey} from '../../../store/onboarding/types';
-import {OnboardingScaffold} from '../components/OnboardingScaffold';
-import {OnboardingBottomBar} from '../components/OnboardingBottomBar';
-import {TopicChipGrid} from '../components/TopicChipGrid';
-import {useOnboardingHandlers} from '../useOnboardingHandlers';
+import {OnboardingScaffold} from './components/OnboardingScaffold';
+import {OnboardingBottomBar} from './components/OnboardingBottomBar';
+import {TopicChipGrid} from './components/TopicChipGrid';
+import {useOnboardingHandlers} from './useOnboardingHandlers';
 import {createStyles} from './styles';
 
 export const Onboarding5Screen: React.FC = observer(() => {
-  const {l10n, selectTopic, goBack} = useOnboardingHandlers(5);
+  const {selectTopic, goBack} = useOnboardingHandlers(5);
   const theme = useTheme();
   const styles = createStyles(theme);
-  const t = l10n.onboarding;
+
   const selected = uiStore.onboardingState.selectedTopic;
-  const labels = t.screen5.topic as Record<TopicKey, string>;
-  const descriptions = t.screen5.topicDescription as Record<TopicKey, string>;
-  // Figma `884:28282` omits a back affordance, but the screen sits
-  // mid-flow — users need to be able to retreat to screens 2–4. Render
-  // a back-only bottom bar (no primary CTA: chips auto-advance).
+
+  // Temáticas adaptadas a la UCVAG
+  const labels: Record<TopicKey, string> = {
+    general: 'Agroecología General',
+    coding: 'Soberanía Tecnológica',
+    writing: 'Investigación Campesina',
+    roleplay: 'Gestión Comunitaria',
+  };
+
+  const descriptions: Record<TopicKey, string> = {
+    general: 'Producción sostenible y técnicas de cultivo tradicional.',
+    coding: 'Herramientas libres e inteligencia artificial soberana.',
+    writing: 'Sistematización de saberes y redacción académica.',
+    roleplay: 'Organización popular y desarrollo colectivo.',
+  };
+
   return (
     <OnboardingScaffold
       step={5}
@@ -30,8 +41,8 @@ export const Onboarding5Screen: React.FC = observer(() => {
       content={
         <>
           <View style={styles.header}>
-            <Text style={styles.title}>{t.screen5.title}</Text>
-            <Text style={styles.body}>{t.screen5.body}</Text>
+            <Text style={styles.title}>Áreas de Estudio UCVAG</Text>
+            <Text style={styles.body}>Selecciona el área de conocimiento o investigación en la que deseas profundizar.</Text>
           </View>
           <TopicChipGrid
             selected={selected}
@@ -42,7 +53,7 @@ export const Onboarding5Screen: React.FC = observer(() => {
         </>
       }
       bottomBar={
-        <OnboardingBottomBar onBack={goBack} backAccessibilityLabel={t.back} />
+        <OnboardingBottomBar onBack={goBack} backAccessibilityLabel="Atrás" />
       }
     />
   );
