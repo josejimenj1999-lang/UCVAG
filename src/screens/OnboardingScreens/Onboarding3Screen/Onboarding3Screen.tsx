@@ -18,7 +18,7 @@ export const Onboarding3Screen: React.FC = observer(() => {
       illustration={
         <Image
           source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
-          style={{ width: 110, height: 110 }}
+          style={{width: 110, height: 110}}
           resizeMode="contain"
         />
       }

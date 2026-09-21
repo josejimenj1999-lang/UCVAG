@@ -20,7 +20,7 @@ export const Onboarding4Screen: React.FC = observer(() => {
         <View style={styles.illustrationWrap}>
           <Image
             source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
-            style={{ width: 110, height: 110 }}
+            style={{width: 110, height: 110}}
             resizeMode="contain"
           />
         </View>
@@ -37,7 +37,10 @@ export const Onboarding4Screen: React.FC = observer(() => {
           body={
             <HighlightText
               body="Garantizamos la seguridad de la información institucional con modelos locales y total independencia tecnológica."
-              phrases={['independencia tecnológica', 'seguridad de la información']}
+              phrases={[
+                'independencia tecnológica',
+                'seguridad de la información',
+              ]}
             />
           }
         />

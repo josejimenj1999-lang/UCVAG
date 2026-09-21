@@ -18,7 +18,7 @@ export const Onboarding1Screen: React.FC = observer(() => {
       illustration={
         <Image
           source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
-          style={{ width: 120, height: 120 }}
+          style={{width: 120, height: 120}}
           resizeMode="contain"
         />
       }
@@ -32,9 +32,9 @@ export const Onboarding1Screen: React.FC = observer(() => {
             />
           }
           body={
-            <HighlightText 
-              body="Plataforma soberana de inteligencia artificial para la investigación, el estudio y el desarrollo académico del campo venezolano." 
-              phrases={['Plataforma soberana', 'desarrollo académico']} 
+            <HighlightText
+              body="Plataforma soberana de inteligencia artificial para la investigación, el estudio y el desarrollo académico del campo venezolano."
+              phrases={['Plataforma soberana', 'desarrollo académico']}
             />
           }
         />

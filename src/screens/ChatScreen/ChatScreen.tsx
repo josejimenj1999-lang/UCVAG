@@ -328,7 +328,7 @@ export const ChatScreen: React.FC = observer(() => {
             : l10n.chat.typeYourMessage,
         }}
       />
-      
+
       {/* Botón flotante rápido o sección para adjuntar documento UCVAG si se desea */}
       <View style={styles.floatingDocButtonWrapper}>
         <Chip
@@ -336,7 +336,9 @@ export const ChatScreen: React.FC = observer(() => {
           mode="outlined"
           onPress={handlePickDocument}
           style={styles.pickDocChip}>
-          {loadedDocument ? 'Cambiar Documento de Estudio' : 'Adjuntar Libro/Documento UCVAG'}
+          {loadedDocument
+            ? 'Cambiar Documento de Estudio'
+            : 'Adjuntar Libro/Documento UCVAG'}
         </Chip>
       </View>
 

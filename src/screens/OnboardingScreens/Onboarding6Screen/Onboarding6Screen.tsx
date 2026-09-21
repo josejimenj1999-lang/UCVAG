@@ -48,7 +48,7 @@ export const Onboarding6Screen: React.FC = observer(() => {
   const canFinish = selectedId !== null && !isFinishing;
   const isDownloaded = (id: string): boolean =>
     !!modelStore.models.find(m => m.id === id)?.isDownloaded;
-  
+
   const options: ModelOption[] = pal.models.map(entry => {
     const id = entryId(entry);
     const sizeSegment = formatSize(entry.sizeBytes);
@@ -89,20 +89,20 @@ export const Onboarding6Screen: React.FC = observer(() => {
           <View style={styles.header}>
             <Image
               source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
-              style={{ width: 75, height: 75, marginBottom: 10 }}
+              style={{width: 75, height: 75, marginBottom: 10}}
               resizeMode="contain"
             />
             <ItalicAccentTitle title="Motor de IA UCVAG" align="center" />
             <Text style={styles.palBody}>
-              Selecciona el modelo de procesamiento local adecuado para tu dispositivo y comienza tu experiencia académica soberana.
+              Selecciona el modelo de procesamiento local adecuado para tu
+              dispositivo y comienza tu experiencia académica soberana.
             </Text>
           </View>
-          <DeviceInfoChip
-            ramSuffix="RAM disponible"
-            freeSuffix="Libre"
-          />
+          <DeviceInfoChip ramSuffix="RAM disponible" freeSuffix="Libre" />
           <View style={styles.options}>
-            <Text style={styles.subtitle}>Selecciona la capacidad del modelo:</Text>
+            <Text style={styles.subtitle}>
+              Selecciona la capacidad del modelo:
+            </Text>
             <ModelRadioGroup
               options={options}
               selectedId={selectedId}

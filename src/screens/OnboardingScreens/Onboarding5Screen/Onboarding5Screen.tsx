@@ -42,7 +42,10 @@ export const Onboarding5Screen: React.FC = observer(() => {
         <>
           <View style={styles.header}>
             <Text style={styles.title}>Áreas de Estudio UCVAG</Text>
-            <Text style={styles.body}>Selecciona el área de conocimiento o investigación en la que deseas profundizar.</Text>
+            <Text style={styles.body}>
+              Selecciona el área de conocimiento o investigación en la que
+              deseas profundizar.
+            </Text>
           </View>
           <TopicChipGrid
             selected={selected}

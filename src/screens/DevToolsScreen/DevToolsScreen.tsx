@@ -80,7 +80,9 @@ const DevToolsHomeScreen: React.FC = () => {
           <Card.Title title="Herramientas de Desarrollo UCVAG" />
           <Card.Content>
             <Text variant="bodyMedium" style={styles.description}>
-              Estas herramientas son exclusivas para labores de desarrollo, soporte técnico y depuración institucional. No estarán disponibles en la versión de producción pública.
+              Estas herramientas son exclusivas para labores de desarrollo,
+              soporte técnico y depuración institucional. No estarán disponibles
+              en la versión de producción pública.
             </Text>
           </Card.Content>
         </Card>
@@ -90,7 +92,9 @@ const DevToolsHomeScreen: React.FC = () => {
           <Card.Title title="Prueba de Completado de IA" />
           <Card.Content>
             <Text variant="bodyMedium" style={styles.description}>
-              Prueba la API de completado con diversos parámetros y observa los resultados. Útil para verificar el comportamiento de los modelos locales.
+              Prueba la API de completado con diversos parámetros y observa los
+              resultados. Útil para verificar el comportamiento de los modelos
+              locales.
             </Text>
             <View style={styles.buttonContainer}>
               <Button
@@ -108,7 +112,8 @@ const DevToolsHomeScreen: React.FC = () => {
           <Card.Title title="Inspector de Base de Datos" />
           <Card.Content>
             <Text variant="bodyMedium" style={styles.description}>
-              Visualiza e inspecciona el contenido de las tablas locales. Útil para verificar la persistencia de datos y la estructura interna.
+              Visualiza e inspecciona el contenido de las tablas locales. Útil
+              para verificar la persistencia de datos y la estructura interna.
             </Text>
             <View style={styles.buttonContainer}>
               <Button
@@ -128,10 +133,13 @@ const DevToolsHomeScreen: React.FC = () => {
           <Card.Title title="Migración de Base de Datos" />
           <Card.Content>
             <Text variant="bodyMedium" style={styles.description}>
-              Reinicia el indicador de migración y limpia la base de datos local. Útil para probar el proceso de transición hacia almacenamiento estructurado.
+              Reinicia el indicador de migración y limpia la base de datos
+              local. Útil para probar el proceso de transición hacia
+              almacenamiento estructurado.
             </Text>
             <Text variant="bodyMedium" style={styles.warningText}>
-              Advertencia: ¡Esto eliminará todos los datos almacenados en la base de datos!
+              Advertencia: ¡Esto eliminará todos los datos almacenados en la
+              base de datos!
             </Text>
             <View style={styles.buttonContainer}>
               <Button
