@@ -19,7 +19,7 @@ export async function loadDocumentForChat(fileUri: string, fileName: string): Pr
     const fileContent = await RNFS.readFile(cleanUri, 'utf8');
 
     if (!fileContent || fileContent.trim().length === 0) {
-      throw.error('El documento está vacío o no se pudo leer su contenido de texto.');
+      throw new Error('El documento está vacío o no se pudo leer su contenido de texto.');
     }
 
     return {
