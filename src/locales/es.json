@@ -505,7 +505,7 @@
     "screenTitle": "Información Institucional - UCVAG",
     "description": "Universidad Campesina de Venezuela \"Argimiro Gabaldón\" (A la vanguardia en crecimiento y desarrollo tecnológico y científico). Esta aplicación está diseñada para incluir en el mundo de la tecnología y las inteligencias artificiales (Edge AI) a estudiantes, sin discriminación y con respeto. Recuerda que no hay límites para el conocimiento, ni excusa válida para ser mejor que ayer.",
     "supportProject": "Créditos Académicos e Institucionales",
-    "supportProjectDescription": "Autores: Wilyer Linares e Iraidys Matheus de Linares\nTutores Académicos: Lcda. Nancy Rivas / Ing. J. Freitez\n\nDesarrollo enfocado en la soberanía tecnológica y el desarrollo científico de la comunidad UCVAG.",
+    "supportProjectDescription": "Autores: Wilyer Linarez e Iraidys Matheus de Linarez\nTutores Académicos: Lcda. Nancy Rivas / Ing. J. Freitez\n\nDesarrollo enfocado en la soberanía tecnológica y el desarrollo científico de la comunidad UCVAG.",
     "githubButton": "Repositorio Oficial UCVAG",
     "orBy": "o mediante",
     "versionCopiedTitle": "Información copiada",
@@ -1183,7 +1183,7 @@
     "contextFull": "Capacidad de contexto agotada. Inicie una nueva sesión o amplíe el límite.",
     "contextFullRemote": "Capacidad de contexto agotada. Inicie una nueva sesión.",
     "contextFullEscalated": "Espacio de contexto insuficiente. Inicie una sesión nueva.",
-    "contextFullHeavyTalent": "Límite de contexto alcanzado por el volumen de datos de la herramienta.",
+    "contextFullHeavyTalent": "La conversación se quedó sin espacio — {{talent}} suele necesitar más. Inicia un nuevo chat o aumenta el tamaño del contexto.",
     "contextBannerDismiss": "Descartar",
     "contextNewChat": "Sesión Nueva",
     "contextIncrease": "Ampliar contexto",
@@ -1197,12 +1197,12 @@
     "increaseContextWontFitChip": "Excede capacidad",
     "increaseContextFitsStatus": "Óptimo para las especificaciones del dispositivo.",
     "increaseContextFitsUnconstrainedStatus": "Memoria suficiente disponible.",
-    "increaseContextTightStatus": "El hardware podría experimentar menor velocidad operativa.",
-    "increaseContextWontFitStatus": "Supera la capacidad estimada del dispositivo.",
+    "increaseContextTightStatus": "A partir de ~{{tokens}}, este dispositivo puede quedarse sin memoria y ralentizarse. Aun así, puede intentarlo.",
+    "increaseContextWontFitStatus": "Es probable que ~{{tokens}} no quepan en la memoria de este dispositivo. Elige un tamaño más pequeño.",
     "increaseContextModelMax": "{{tokens}} · límite máximo del núcleo",
     "increaseContextHedge": "La recarga tomará unos segundos sin pérdida de datos.",
     "increaseContextAdvanced": "Avanzado",
-    "increaseContextAdvancedBody": "Ajuste de contexto: {{from}} → {{to}} tokens.",
+    "increaseContextAdvancedBody": "Tamaño del contexto para este chat: {{from}} → {{to}} tokens (máximo del modelo: {{max}}). El límite del dispositivo es una estimación y aumenta a medida que se cargan con éxito contextos más grandes.",
     "increaseContextSliderA11yLabel": "Amplitud del contexto",
     "increaseContextSliderA11yValue": "{{tokens}} tokens",
     "increaseContextConfirmSize": "Aplicar {{size}}",
@@ -1541,7 +1541,7 @@
         "balanced": "Equilibrado",
         "best": "Alto rendimiento"
       },
-      "subtitleTemplate": "Seleccione un núcleo analítico adaptado a las especificaciones de su equipo.",
+      "subtitleTemplate": "{{name}} piensa utilizando un modelo de IA pequeño en tu teléfono — elige uno que se adapte.",
       "pal": {
         "pip": {
           "body": "Asistente multipropósito equilibrado para el acompañamiento académico cotidiano."
