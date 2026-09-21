@@ -474,7 +474,7 @@
   "completionParams": {
     "include_thinking_in_context": "Incluir los procesos lógicos y de razonamiento interno en el contexto del modelo. Desactivar optimiza espacio analítico.",
     "jinja": "Habilitar plantillas Jinja para formatear la sesión académica.",
-    "grammar": "Aplicar restricciones gramaticales estrictas en la respuesta generada.",
+    "grammar": "Aplicar restricciones gramaticales estrictamente en la respuesta generada.",
     "stop": "Establecer secuencias de parada explícitas para el texto.",
     "n_predict": "Límite máximo de tokens a generar en la respuesta.",
     "n_probs": "Mostrar métricas de probabilidad para opciones alternativas.",
@@ -967,7 +967,7 @@
       "exportCount": "Exportar acervo ({{count}})",
       "deleteCount": "Eliminar registros ({{count}})",
       "bulkDeleteTitle": "Eliminar sesiones múltiples",
-      "bulkDeleteMessage": "¿Confirma la eliminación de {{count}} sesión(es)? Acción irreversible.",
+      "bulkDeleteMessage": "¿Confirms la eliminación de {{count}} sesión(es)? Acción irreversible.",
       "bulkDeleteError": "Fallo al eliminar las sesiones seleccionadas.",
       "exportError": "Fallo al exportar el historial de sesiones.",
       "bulkExportError": "Fallo al exportar el acervo múltiple.",
