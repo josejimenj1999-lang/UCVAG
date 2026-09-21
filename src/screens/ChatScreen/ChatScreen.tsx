@@ -2,6 +2,9 @@ import React, {useRef, ReactNode, useState} from 'react';
 
 import {observer} from 'mobx-react';
 import {runInAction} from 'mobx';
+import {Alert, View, StyleSheet} from 'react-native';
+import {Chip, Text} from 'react-native-paper';
+import {pick, types} from '@react-native-documents/picker';
 
 import {
   Bubble,
@@ -29,6 +32,11 @@ import {resolveReasoningCapability} from '../../utils/reasoningCapability';
 import {MessageType} from '../../utils/types';
 import {ErrorState} from '../../utils/errors';
 import {user, assistant} from '../../utils/chat';
+import {
+  loadDocumentForChat,
+  buildDocumentPrompt,
+  LoadedDocument,
+} from '../../utils/documentContext';
 
 import {VideoPalScreen} from './VideoPalScreen';
 
@@ -72,11 +80,49 @@ export const ChatScreen: React.FC = observer(() => {
   const [isErrorReportVisible, setIsErrorReportVisible] = useState(false);
   const [errorToReport, setErrorToReport] = useState<ErrorState | null>(null);
 
+  // State for UCVAG document-based research (RAG)
+  const [loadedDocument, setLoadedDocument] = useState<LoadedDocument | null>(
+    null,
+  );
+  const [isPickingDoc, setIsPickingDoc] = useState(false);
+
   const {handleSendPress, handleStopPress} = useChatSession(
     currentMessageInfo,
     user,
     assistant,
   );
+
+  // Handler to pick documents for research and source citation
+  const handlePickDocument = async () => {
+    if (isPickingDoc) return;
+    try {
+      setIsPickingDoc(true);
+      const result = await pick({
+        type: [types.allFiles],
+      });
+      const [file] = result;
+      if (file) {
+        const doc = await loadDocumentForChat(
+          file.uri,
+          file.name || 'Documento Institucional UCVAG',
+        );
+        setLoadedDocument(doc);
+      }
+    } catch (error) {
+      console.log('Selección de documento cancelada o fallida:', error);
+    } finally {
+      setIsPickingDoc(false);
+    }
+  };
+
+  // Intercept send press to wrap message with document context if available
+  const handleCustomSendPress = (messageText: string) => {
+    let finalMessage = messageText;
+    if (loadedDocument) {
+      finalMessage = buildDocumentPrompt(loadedDocument, messageText);
+    }
+    handleSendPress(finalMessage);
+  };
 
   // Handle deep linking for message prefill
   const {pendingMessage, clearPendingMessage} = usePendingMessage();
@@ -107,8 +153,6 @@ export const ChatScreen: React.FC = observer(() => {
   const visionEnabled = modelStore.activeModelCaps.visionActive;
 
   // Resolver is the single source of truth for reasoning capability.
-  // Pill is reachable whenever the model is not known to be non-reasoning
-  // (fail-open on 'unknown' so remote + missed-local models are reachable).
   const reasoningCapability = resolveReasoningCapability(
     modelStore.activeModel,
     serverStore.remoteReasoning,
@@ -145,10 +189,7 @@ export const ChatScreen: React.FC = observer(() => {
     activePalId,
   ]);
 
-  // Tool-compatibility one-time banner: when the active Pal declares
-  // tools but the loaded model's jinja metadata signals no tool support
-  // in any of its slots (see below), surface an inline warning.
-  // Persisted per model id so the warning fires at most once.
+  // Tool-compatibility one-time banner
   React.useEffect(() => {
     const palDeclaresTools =
       activePal?.pact?.talents !== undefined &&
@@ -161,11 +202,6 @@ export const ChatScreen: React.FC = observer(() => {
     if (!model || !modelId) {
       return;
     }
-    // Tool support surfaces in four independent places in llama.rn's
-    // jinja metadata: defaultCaps.tools/toolCalls (model declares it
-    // inline in the default template — Ministral, Llama 3.x, etc.) or
-    // toolUse/toolUseCaps (separate tool-use template — Qwen3, etc.).
-    // Any one is sufficient; only warn when all four are absent.
     const jinja = model.chatTemplates?.jinja;
     const hasToolSupport =
       !!jinja?.defaultCaps?.tools ||
@@ -190,12 +226,6 @@ export const ChatScreen: React.FC = observer(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activePalId, modelStore.activeModelId, modelStore.context]);
 
-  // Persist the on/off intent (and optional effort) onto both the local
-  // enable_thinking flag and the reasoning carrier so the remote wire path
-  // (openai.ts, gated per serverType) and the local hook both see it.
-  // Preserves pal overrides. No active session: stage on the new-chat
-  // override field — the resolver applies it as the last layer and session
-  // creation bakes it in, without touching newChatCompletionSettings.
   const persistReasoning = async (enabled: boolean, effort?: string) => {
     const currentSession = chatSessionStore.sessions.find(
       s => s.id === chatSessionStore.activeSessionId,
@@ -216,13 +246,10 @@ export const ChatScreen: React.FC = observer(() => {
     }
   };
 
-  // Simple on/off pill (effortless models): carries the on/off intent on the
-  // reasoning carrier (effort undefined) so remote OFF is not a no-op.
   const handleThinkingToggle = async (enabled: boolean) => {
     await persistReasoning(enabled);
   };
 
-  // Graded pill cycle: off -> values[0] -> ... -> values[n] -> off.
   const handleEffortCycle = async () => {
     const values = reasoningCapability.effortValues;
     if (values.length === 0) {
@@ -256,11 +283,23 @@ export const ChatScreen: React.FC = observer(() => {
   // Otherwise, show the regular chat view
   return (
     <>
+      {/* Indicador visual de documento institucional adjunto para investigación UCVAG */}
+      {loadedDocument && (
+        <View style={styles.documentBadgeContainer}>
+          <Chip
+            icon="file-document-outline"
+            onClose={() => setLoadedDocument(null)}
+            style={styles.documentChip}>
+            Fuente UCVAG: {loadedDocument.name}
+          </Chip>
+        </View>
+      )}
+
       <ChatView
         renderBubble={renderBubble}
         messages={chatSessionStore.currentSessionMessages}
         activePal={activePal}
-        onSendPress={handleSendPress}
+        onSendPress={handleCustomSendPress}
         onStopPress={handleStopPress}
         onPalSettingsSelect={handleOpenPalSheet}
         user={user}
@@ -279,6 +318,7 @@ export const ChatScreen: React.FC = observer(() => {
           effortValues: reasoningCapability.effortValues,
           reasoningEffort,
           onEffortCycle: handleEffortCycle,
+          // Añadimos un botón adicional o acción en los props si la vista de chat lo soporta, o puedes invocar handlePickDocument mediante un acceso directo.
         }}
         textInputProps={{
           placeholder: !modelStore.engine
@@ -288,6 +328,18 @@ export const ChatScreen: React.FC = observer(() => {
             : l10n.chat.typeYourMessage,
         }}
       />
+      
+      {/* Botón flotante rápido o sección para adjuntar documento UCVAG si se desea */}
+      <View style={styles.floatingDocButtonWrapper}>
+        <Chip
+          icon="book-education-outline"
+          mode="outlined"
+          onPress={handlePickDocument}
+          style={styles.pickDocChip}>
+          {loadedDocument ? 'Cambiar Documento de Estudio' : 'Adjuntar Libro/Documento UCVAG'}
+        </Chip>
+      </View>
+
       {uiStore.chatWarning && (
         <ErrorSnackbar
           error={uiStore.chatWarning}
@@ -315,4 +367,24 @@ export const ChatScreen: React.FC = observer(() => {
       )}
     </>
   );
+});
+
+const styles = StyleSheet.create({
+  documentBadgeContainer: {
+    paddingHorizontal: 16,
+    paddingTop: 8,
+    backgroundColor: 'transparent',
+  },
+  documentChip: {
+    alignSelf: 'flex-start',
+  },
+  floatingDocButtonWrapper: {
+    paddingHorizontal: 16,
+    paddingBottom: 4,
+    alignItems: 'flex-start',
+    backgroundColor: 'transparent',
+  },
+  pickDocChip: {
+    marginVertical: 4,
+  },
 });
