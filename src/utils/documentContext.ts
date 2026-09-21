@@ -10,16 +10,23 @@ export interface LoadedDocument {
  * Lee un archivo de texto o documento compatible desde el almacenamiento local
  * y lo prepara para ser inyectado como contexto de investigación en el chat.
  */
-export async function loadDocumentForChat(fileUri: string, fileName: string): Promise<LoadedDocument | null> {
+export async function loadDocumentForChat(
+  fileUri: string,
+  fileName: string,
+): Promise<LoadedDocument | null> {
   try {
     // Normalizar la ruta del URI si es necesario en Android/iOS
-    const cleanUri = fileUri.startsWith('file://') ? fileUri : `file://${fileUri}`;
-    
+    const cleanUri = fileUri.startsWith('file://')
+      ? fileUri
+      : `file://${fileUri}`;
+
     // Leer el contenido del archivo como texto plano
     const fileContent = await RNFS.readFile(cleanUri, 'utf8');
 
     if (!fileContent || fileContent.trim().length === 0) {
-      throw new Error('El documento está vacío o no se pudo leer su contenido de texto.');
+      throw new Error(
+        'El documento está vacío o no se pudo leer su contenido de texto.',
+      );
     }
 
     return {
@@ -36,7 +43,10 @@ export async function loadDocumentForChat(fileUri: string, fileName: string): Pr
 /**
  * Genera el prompt enriquecido con las instrucciones de citación estricta de autores.
  */
-export function buildDocumentPrompt(document: LoadedDocument, userQuery: string): string {
+export function buildDocumentPrompt(
+  document: LoadedDocument,
+  userQuery: string,
+): string {
   return `
 [DOCUMENTO DE REFERENCIA INSTITUCIONAL UCVAG]
 Título/Fuente: ${document.name}
