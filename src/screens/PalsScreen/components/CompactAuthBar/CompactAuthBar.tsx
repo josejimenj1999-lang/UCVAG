@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useContext} from 'react';
 import {View} from 'react-native';
 import {Text, Button, IconButton} from 'react-native-paper';

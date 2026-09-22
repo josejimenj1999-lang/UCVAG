@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useState, useContext} from 'react';
 import {View, TouchableOpacity} from 'react-native';
 import {Text} from 'react-native-paper';

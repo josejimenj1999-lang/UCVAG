@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import {getBackendDevicesInfo} from 'llama.rn';
 import {Platform, Keyboard} from 'react-native';

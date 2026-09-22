@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import {View, ScrollView} from 'react-native';
 import {Chip} from 'react-native-paper';

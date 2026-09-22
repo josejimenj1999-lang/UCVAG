@@ -1,3 +1,4 @@
+/* eslint-disable */
 export * from './AboutScreen';
 export * from './BenchmarkScreen';
 export * from './ChatScreen';

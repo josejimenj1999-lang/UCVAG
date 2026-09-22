@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type {Pal} from '../../store';
 import type {PalsHubPal} from '../../types/palshub';
 

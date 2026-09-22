@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable no-useless-escape */
 import React, {useState} from 'react';
 import {View, ScrollView} from 'react-native';

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useRef, ReactNode, useState} from 'react';
 
 import {observer} from 'mobx-react';

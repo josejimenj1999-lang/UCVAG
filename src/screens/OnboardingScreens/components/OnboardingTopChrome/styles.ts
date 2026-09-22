@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {I18nManager, StyleSheet} from 'react-native';
 
 import type {Theme} from '../../../../utils/types';

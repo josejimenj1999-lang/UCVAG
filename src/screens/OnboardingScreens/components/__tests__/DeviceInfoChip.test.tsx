@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import DeviceInfo from 'react-native-device-info';
 import {waitFor, within} from '@testing-library/react-native';

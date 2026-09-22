@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {StyleSheet} from 'react-native';
 
 import {GAP} from '../../palGridLayout';

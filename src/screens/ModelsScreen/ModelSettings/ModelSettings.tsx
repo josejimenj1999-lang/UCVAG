@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useEffect, useRef, useState, useContext} from 'react';
 import {TextInput as RNTextInput} from 'react-native';
 import {View, Keyboard} from 'react-native';

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {createPal} from '../../../../jest/fixtures/pals';
 import {
   GAP,

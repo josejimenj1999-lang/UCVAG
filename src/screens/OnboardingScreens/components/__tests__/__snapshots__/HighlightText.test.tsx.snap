@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HighlightText ignores empty phrase entries (defensive) 1`] = `

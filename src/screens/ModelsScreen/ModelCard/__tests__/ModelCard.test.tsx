@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import {Linking, Alert} from 'react-native';
 

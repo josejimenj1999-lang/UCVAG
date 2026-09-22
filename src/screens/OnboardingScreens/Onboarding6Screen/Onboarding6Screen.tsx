@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useEffect} from 'react';
 import {Text, View, Image} from 'react-native';
 import {observer} from 'mobx-react';

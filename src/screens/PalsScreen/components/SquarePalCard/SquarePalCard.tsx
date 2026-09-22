@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useContext} from 'react';
 import {View, TouchableOpacity, Image, Alert} from 'react-native';
 

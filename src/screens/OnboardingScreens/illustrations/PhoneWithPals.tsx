@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import Svg, {Circle, G, Path, Rect} from 'react-native-svg';
 

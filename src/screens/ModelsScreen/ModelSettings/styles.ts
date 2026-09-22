@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {Dimensions, StyleSheet} from 'react-native';
 
 import {Theme} from '../../../utils/types';

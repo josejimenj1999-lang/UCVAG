@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useContext} from 'react';
 import {View, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';

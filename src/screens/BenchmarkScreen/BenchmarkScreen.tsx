@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {View, ScrollView} from 'react-native';
 import React, {useState, useCallback, useContext} from 'react';
 

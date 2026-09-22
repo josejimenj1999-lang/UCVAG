@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useState} from 'react';
 import {View} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';

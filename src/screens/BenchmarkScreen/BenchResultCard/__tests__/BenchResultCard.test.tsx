@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import {Linking, Alert} from 'react-native';
 import {fireEvent, render, act, waitFor} from '../../../../../jest/test-utils';

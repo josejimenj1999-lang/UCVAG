@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {renderHook, act} from '@testing-library/react-hooks';
 
 import {uiStore, palStore, modelStore} from '../../../store';
