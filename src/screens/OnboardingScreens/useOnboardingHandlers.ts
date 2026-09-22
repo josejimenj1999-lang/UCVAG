@@ -1,4 +1,5 @@
 // @ts-nocheck
+// @ts-nocheck
 /* eslint-disable */
 import {useCallback, useContext, useEffect, useRef, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';

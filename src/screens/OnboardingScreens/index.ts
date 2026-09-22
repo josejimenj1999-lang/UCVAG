@@ -1,4 +1,5 @@
 // @ts-nocheck
+// @ts-nocheck
 /* eslint-disable */
 export {SplashScreen} from './SplashScreen';
 export {Onboarding1Screen} from './Onboarding1Screen';

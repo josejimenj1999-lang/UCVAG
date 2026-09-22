@@ -1,4 +1,5 @@
 // @ts-nocheck
+// @ts-nocheck
 /* eslint-disable */
 import React, {useState, useContext, useEffect} from 'react';
 import {FlatList, RefreshControl, Platform, Alert, View} from 'react-native';

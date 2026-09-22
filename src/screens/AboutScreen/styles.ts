@@ -1,4 +1,5 @@
 // @ts-nocheck
+// @ts-nocheck
 /* eslint-disable */
 import {StyleSheet} from 'react-native';
 import {EdgeInsets} from 'react-native-safe-area-context';

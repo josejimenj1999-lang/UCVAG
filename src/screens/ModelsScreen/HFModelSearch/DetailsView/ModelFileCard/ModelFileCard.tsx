@@ -1,4 +1,5 @@
 // @ts-nocheck
+// @ts-nocheck
 /* eslint-disable */
 import React, {FC, useState, useContext, useMemo} from 'react';
 import {Alert, View, StyleSheet, Pressable} from 'react-native';

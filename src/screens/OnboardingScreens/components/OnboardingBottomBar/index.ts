@@ -1,4 +1,5 @@
 // @ts-nocheck
+// @ts-nocheck
 /* eslint-disable */
 export {OnboardingBottomBar} from './OnboardingBottomBar';
 export type {OnboardingBottomBarProps} from './OnboardingBottomBar';

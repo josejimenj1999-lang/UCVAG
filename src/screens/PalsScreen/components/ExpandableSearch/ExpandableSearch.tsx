@@ -1,4 +1,5 @@
 // @ts-nocheck
+// @ts-nocheck
 /* eslint-disable */
 import React, {useState, useEffect, useCallback, useContext} from 'react';
 import {View, Animated, TextInput, TouchableOpacity} from 'react-native';

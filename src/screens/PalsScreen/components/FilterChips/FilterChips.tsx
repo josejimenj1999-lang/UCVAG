@@ -1,4 +1,5 @@
 // @ts-nocheck
+// @ts-nocheck
 /* eslint-disable */
 import React from 'react';
 import {View, ScrollView} from 'react-native';

@@ -1,4 +1,5 @@
 // @ts-nocheck
+// @ts-nocheck
 /* eslint-disable */
 import React, {useEffect} from 'react';
 import {Text, View, Image} from 'react-native';
