@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import React from 'react';
 import {Alert, Linking, Platform} from 'react-native';

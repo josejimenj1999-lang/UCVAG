@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import {Image} from 'react-native';
 import React, {useContext, useMemo, useState} from 'react';

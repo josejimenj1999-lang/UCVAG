@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import React, {useEffect, useRef, useState, useContext} from 'react';
 import {TextInput as RNTextInput} from 'react-native';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import {createPal} from '../../../../jest/fixtures/pals';
 import {

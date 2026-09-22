@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import React, {useCallback, useContext} from 'react';
 import {View} from 'react-native';

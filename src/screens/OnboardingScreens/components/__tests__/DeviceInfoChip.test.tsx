@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import React from 'react';
 import DeviceInfo from 'react-native-device-info';

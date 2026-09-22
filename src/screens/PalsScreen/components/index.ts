@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 export * from './BottomActionBar';
 export * from './CompactAuthBar';

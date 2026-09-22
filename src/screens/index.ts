@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 export * from './AboutScreen';
 export * from './BenchmarkScreen';

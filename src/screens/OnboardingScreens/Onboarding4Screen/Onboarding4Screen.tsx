@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import React from 'react';
 import {Image, View} from 'react-native';

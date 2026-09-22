@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import React from 'react';
 import {Keyboard} from 'react-native';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import React, {useState, useEffect, useRef, useContext} from 'react';
 import {

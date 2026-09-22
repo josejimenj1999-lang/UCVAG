@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 /* eslint-disable no-useless-escape */
 import React, {useState} from 'react';

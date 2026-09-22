@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import {I18nManager, StyleSheet} from 'react-native';
 

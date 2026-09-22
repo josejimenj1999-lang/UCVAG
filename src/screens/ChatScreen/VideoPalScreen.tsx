@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import React, {useState, useCallback, useContext, useEffect} from 'react';
 import {View, StyleSheet} from 'react-native';

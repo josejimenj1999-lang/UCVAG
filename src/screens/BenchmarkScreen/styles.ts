@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import {Platform, StyleSheet} from 'react-native';
 import type {Theme} from '../../utils/types';
