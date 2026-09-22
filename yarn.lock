@@ -7910,6 +7910,13 @@ react-native-webview@^13.16.1:
     escape-string-regexp "^4.0.0"
     invariant "2.2.4"
 
+react-native-worklets-core@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.npmjs.org/react-native-worklets-core/-/react-native-worklets-core-1.6.3.tgz"
+  integrity sha512-r3Q40XQBccx/iAI5tlyiua+micvO1UGzzUOskNweZUXyfrrE+rb5aqxqruBPqXf90rO+bBiplylLMEAXCLTyGA==
+  dependencies:
+    string-hash-64 "^1.0.3"
+
 react-native-worklets@^0.6.0:
   version "0.6.1"
   resolved "https://registry.npmjs.org/react-native-worklets/-/react-native-worklets-0.6.1.tgz"
@@ -8545,6 +8552,11 @@ string_decoder@^1.1.1:
   integrity sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==
   dependencies:
     safe-buffer "~5.2.0"
+
+string-hash-64@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/string-hash-64/-/string-hash-64-1.0.3.tgz"
+  integrity sha512-D5OKWKvDhyVWWn2x5Y9b+37NUllks34q1dCDhk/vYcso9fmhs+Tl3KR/gE4v5UNj2UA35cnX4KdVVGkG1deKqw==
 
 string-length@^4.0.1:
   version "4.0.2"
