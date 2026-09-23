@@ -1,5 +1,4 @@
 // @ts-nocheck
-// @ts-nocheck
 /* eslint-disable */
 import React, {useEffect} from 'react';
 import {Text, View, Image} from 'react-native';
@@ -91,7 +90,7 @@ export const Onboarding6Screen: React.FC = observer(() => {
         <>
           <View style={styles.header}>
             <Image
-              source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
+              source={require('../../assets/onboarding_unica.png')}
               style={{width: 75, height: 75, marginBottom: 10}}
               resizeMode="contain"
             />
