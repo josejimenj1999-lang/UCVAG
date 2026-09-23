@@ -22,7 +22,7 @@ export const Onboarding4Screen: React.FC = observer(() => {
       illustration={
         <View style={styles.illustrationWrap}>
           <Image
-            source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
+            source={require('../../assets/onboarding_unica.png')}
             style={{width: 110, height: 110}}
             resizeMode="contain"
           />
