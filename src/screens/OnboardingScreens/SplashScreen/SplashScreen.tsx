@@ -1,5 +1,4 @@
 // @ts-nocheck
-// @ts-nocheck
 /* eslint-disable */
 import React, {useContext} from 'react';
 import {View, Image} from 'react-native';
@@ -32,7 +31,7 @@ export const SplashScreen: React.FC = () => {
   return (
     <View testID="onboarding-splash" style={styles.root}>
       <Image
-        source={require('../../../assets/Imagen generada por Gemini_8zvnhq8zvnhq8zvn.png')}
+        source={require('../../assets/onboarding_unica.png')}
         style={{
           width: 220,
           height: 220,
