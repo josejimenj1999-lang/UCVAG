@@ -70,7 +70,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22.21.0'
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: Install Yarn
         run: npm install -g yarn
@@ -128,7 +128,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22.21.0'
-          cache: 'yarn'
+          cache: 'npm'
 
       # Cache node_modules
       - name: Cache node_modules
@@ -347,7 +347,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22.21.0'
-          cache: 'yarn'
+          cache: 'npm'
 
       # Cache node_modules
       - name: Cache node_modules

@@ -68,7 +68,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22.21.0' # Use the specified Node.js version
-          cache: 'yarn'
+          cache: 'npm'
 
       # Step 4: Install dependencies using Yarn
       - name: Install dependencies
@@ -279,7 +279,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22.21.0'
-          cache: 'yarn'
+          cache: 'npm'
 
       # Step 3: Install dependencies using Yarn
       - name: Install dependencies
