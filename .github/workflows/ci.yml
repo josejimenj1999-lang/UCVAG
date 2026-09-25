@@ -70,9 +70,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22.21.0'
-          cache: 'npm'
-
-      - name: Install Yarn
+- name: Install Yarn
         run: npm install -g yarn
 
       # Step 3: Install dependencies and iOS Pods
@@ -128,9 +126,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22.21.0'
-          cache: 'npm'
-
-      # Cache node_modules
+# Cache node_modules
       - name: Cache node_modules
         uses: actions/cache@v3
         with:
@@ -347,9 +343,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22.21.0'
-          cache: 'npm'
-
-      # Cache node_modules
+# Cache node_modules
       - name: Cache node_modules
         uses: actions/cache@v3
         with:
