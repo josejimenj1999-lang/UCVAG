@@ -34,7 +34,7 @@ describe('ChatScreen', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    llamaRN = require('llama.rn');
+    llamaRN = require("../../../assets/onboarding_unica.png");
   });
 
   it('renders correctly when model is not loaded', () => {
@@ -242,7 +242,7 @@ describe('ChatScreen', () => {
   });
 
   describe('thinking toggle in no-session chat', () => {
-    const palStore = require('../../../store').palStore;
+    const palStore = require("../../../assets/onboarding_unica.png").palStore;
     const thinkingPal = {
       id: 'pal-thinking',
       type: 'assistant' as const,
@@ -323,8 +323,8 @@ describe('ChatScreen', () => {
   });
 
   describe('tool-compatibility banner', () => {
-    const palStore = require('../../../store').palStore;
-    const uiStore = require('../../../store').uiStore;
+    const palStore = require("../../../assets/onboarding_unica.png").palStore;
+    const uiStore = require("../../../assets/onboarding_unica.png").uiStore;
 
     const palWithTalents = {
       id: 'pal-with-talents',
@@ -380,7 +380,7 @@ describe('ChatScreen', () => {
       });
       palStore.pals = [palWithTalents];
       jest
-        .spyOn(require('../../../store').chatSessionStore, 'activePalId', 'get')
+        .spyOn(require("../../../assets/onboarding_unica.png").chatSessionStore, 'activePalId', 'get')
         .mockReturnValue(palWithTalents.id);
       return render(<ChatScreen />, {withNavigation: true});
     };

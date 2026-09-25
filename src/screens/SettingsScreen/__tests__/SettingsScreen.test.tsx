@@ -362,7 +362,7 @@ describe('SettingsScreen', () => {
     // Menus open from a ref.measure() callback. The test renderer's shared
     // measure mock is a no-op; make it invoke the callback so the menu opens.
     const mockNativeMethods =
-      require('react-native/jest/MockNativeMethods').default;
+      require("../../../assets/onboarding_unica.png").default;
     beforeEach(() => {
       mockNativeMethods.measure.mockImplementation((cb: any) =>
         cb(0, 0, 10, 10, 0, 0),

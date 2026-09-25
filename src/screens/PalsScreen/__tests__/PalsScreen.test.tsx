@@ -24,7 +24,7 @@ const setWindowWidth = (width: number) => {
 };
 
 jest.mock('react-native/Libraries/Utilities/useWindowDimensions', () => {
-  const {useSyncExternalStore} = require('react');
+  const {useSyncExternalStore} = require("../../../assets/onboarding_unica.png");
 
   const subscribe = (listener: () => void) => {
     mockWindowListeners.add(listener);
@@ -70,7 +70,7 @@ describe('PalsScreen', () => {
   // Migration tests removed - migration is now handled by PalStore
 
   it('should sync data on mount if user is authenticated and sync is needed', async () => {
-    // const {authService, syncService} = require('../../services');
+    // const {authService, syncService} = require("../../../assets/onboarding_unica.png");
 
     // Set up the mock before rendering
     authService.isAuthenticated = true;
@@ -90,7 +90,7 @@ describe('PalsScreen', () => {
   });
 
   it('should not sync if user is not authenticated', async () => {
-    // const {authService, syncService} = require('../../services');
+    // const {authService, syncService} = require("../../../assets/onboarding_unica.png");
 
     // Set up the mock before rendering
     authService.isAuthenticated = false;
@@ -108,7 +108,7 @@ describe('PalsScreen', () => {
   });
 
   it('should handle sync errors gracefully', async () => {
-    // const {authService, syncService} = require('../../services');
+    // const {authService, syncService} = require("../../../assets/onboarding_unica.png");
     const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
 
     // Set up the mock before rendering

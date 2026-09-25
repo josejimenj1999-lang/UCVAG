@@ -8,10 +8,10 @@ import {observer} from 'mobx-react';
 import {uiStore} from '../../../store';
 import {useTheme} from '../../../hooks';
 import type {TopicKey} from '../../../store/onboarding/types';
-import {OnboardingScaffold} from './components/OnboardingScaffold';
-import {OnboardingBottomBar} from './components/OnboardingBottomBar';
-import {TopicChipGrid} from './components/TopicChipGrid';
-import {useOnboardingHandlers} from './useOnboardingHandlers';
+import {OnboardingScaffold} from '../components/OnboardingScaffold';
+import {OnboardingBottomBar} from '../components/OnboardingBottomBar';
+import {TopicChipGrid} from '../components/TopicChipGrid';
+import {useOnboardingHandlers} from '../useOnboardingHandlers';
 import {createStyles} from './styles';
 
 export const Onboarding5Screen: React.FC = observer(() => {

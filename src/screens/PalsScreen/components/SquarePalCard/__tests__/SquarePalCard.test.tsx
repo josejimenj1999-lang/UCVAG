@@ -31,7 +31,7 @@ jest.mock('../../../../../utils/exportUtils', () => ({
   exportPal: jest.fn(),
 }));
 
-const {exportPal} = require('../../../../../utils/exportUtils');
+const {exportPal} = require("../../../assets/onboarding_unica.png");
 
 describe('SquarePalCard', () => {
   const mockOnPress = jest.fn();
@@ -187,7 +187,7 @@ describe('SquarePalCard', () => {
         <SquarePalCard pal={pal} onPress={mockOnPress} isLocal={true} />,
       );
 
-      const images = UNSAFE_getByType(require('react-native').Image);
+      const images = UNSAFE_getByType(require("../../../assets/onboarding_unica.png").Image);
       expect(images).toBeTruthy();
     });
 
@@ -208,7 +208,7 @@ describe('SquarePalCard', () => {
 
       // Check for LockIcon component
       const lockIcons = UNSAFE_getAllByType(
-        require('../../../../../assets/icons').LockIcon,
+        require("../../../assets/onboarding_unica.png").LockIcon,
       );
       expect(lockIcons.length).toBeGreaterThan(0);
     });
@@ -234,7 +234,7 @@ describe('SquarePalCard', () => {
 
       // Find and press delete button (IconButton with TrashIcon)
       const iconButtons = UNSAFE_getAllByType(
-        require('react-native-paper').IconButton,
+        require("../../../assets/onboarding_unica.png").IconButton,
       );
       // Delete button is the second one (after share button)
       const deleteButton = iconButtons[1];
@@ -251,7 +251,7 @@ describe('SquarePalCard', () => {
 
       // Find and press share button (IconButton with ShareIcon)
       const iconButtons = UNSAFE_getAllByType(
-        require('react-native-paper').IconButton,
+        require("../../../assets/onboarding_unica.png").IconButton,
       );
       const shareButton = iconButtons[0]; // Share button is first
 
@@ -278,7 +278,7 @@ describe('SquarePalCard', () => {
 
       // Find chat button - it's a TouchableOpacity inside the thumbnail
       const touchables = UNSAFE_getAllByType(
-        require('react-native').TouchableOpacity,
+        require("../../../assets/onboarding_unica.png").TouchableOpacity,
       );
       // The chat button is the second touchable (first is the card itself)
       const chatButton = touchables[1];
@@ -304,7 +304,7 @@ describe('SquarePalCard', () => {
 
       // PalsHub pals that aren't downloaded shouldn't show chat button
       const touchables = UNSAFE_getAllByType(
-        require('react-native').TouchableOpacity,
+        require("../../../assets/onboarding_unica.png").TouchableOpacity,
       );
       const chatButtons = touchables.filter(
         t => t.props.style?.chatButton !== undefined,
@@ -482,7 +482,7 @@ describe('SquarePalCard', () => {
       );
 
       const iconButtons = UNSAFE_getAllByType(
-        require('react-native-paper').IconButton,
+        require("../../../assets/onboarding_unica.png").IconButton,
       );
       // Should have at least 2 icon buttons (share and delete)
       expect(iconButtons.length).toBeGreaterThanOrEqual(2);
@@ -496,7 +496,7 @@ describe('SquarePalCard', () => {
 
       // PalsHub pals should not have action buttons in header
       const iconButtons = UNSAFE_queryAllByType(
-        require('react-native-paper').IconButton,
+        require("../../../assets/onboarding_unica.png").IconButton,
       );
       // May have warning icon but not share/delete
       expect(iconButtons.length).toBeLessThan(2);
@@ -514,7 +514,7 @@ describe('SquarePalCard', () => {
 
       // Should have chat button - check for ChatIcon or CameraIcon
       const chatIcons = UNSAFE_getAllByType(
-        require('../../../../../assets/icons').ChatIcon,
+        require("../../../assets/onboarding_unica.png").ChatIcon,
       );
       expect(chatIcons.length).toBeGreaterThan(0);
     });
@@ -534,7 +534,7 @@ describe('SquarePalCard', () => {
       );
 
       const cameraIcons = UNSAFE_getAllByType(
-        require('../../../../../assets/icons').CameraIcon,
+        require("../../../assets/onboarding_unica.png").CameraIcon,
       );
       expect(cameraIcons.length).toBeGreaterThan(0);
     });
@@ -547,7 +547,7 @@ describe('SquarePalCard', () => {
       );
 
       const chatIcons = UNSAFE_getAllByType(
-        require('../../../../../assets/icons').ChatIcon,
+        require("../../../assets/onboarding_unica.png").ChatIcon,
       );
       expect(chatIcons.length).toBeGreaterThan(0);
     });
@@ -581,7 +581,7 @@ describe('SquarePalCard', () => {
       );
 
       const iconButtons = UNSAFE_getAllByType(
-        require('react-native-paper').IconButton,
+        require("../../../assets/onboarding_unica.png").IconButton,
       );
       const shareButton = iconButtons[0];
 
@@ -610,7 +610,7 @@ describe('SquarePalCard', () => {
       );
 
       const touchables = UNSAFE_getAllByType(
-        require('react-native').TouchableOpacity,
+        require("../../../assets/onboarding_unica.png").TouchableOpacity,
       );
       const chatButton = touchables.find(
         t => t.props.style?.chatButton !== undefined,

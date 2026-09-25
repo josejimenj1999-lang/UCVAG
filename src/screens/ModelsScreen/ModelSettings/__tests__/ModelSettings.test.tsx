@@ -12,7 +12,7 @@ jest.useFakeTimers(); // Mock all timers
 
 // Mock Sheet component
 jest.mock('../../../../components/Sheet', () => {
-  const {View, TextInput, Button} = require('react-native');
+  const {View, TextInput, Button} = require("../../../assets/onboarding_unica.png");
   const MockSheet = ({children, isVisible, onClose}) => {
     if (!isVisible) {
       return null;

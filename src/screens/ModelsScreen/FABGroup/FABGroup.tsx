@@ -29,7 +29,7 @@ type IconComponentProps = {
 };
 
 const HFIcon = (_props: IconComponentProps): React.ReactNode => (
-  <Image source={require('../../../assets/icon-hf.png')} style={iconStyle} />
+  <Image source={require("../../../../assets/onboarding_unica.png")} style={iconStyle} />
 );
 
 const RemoteIcon = (props: IconComponentProps): React.ReactNode => (
