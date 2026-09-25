@@ -41,9 +41,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm install --legacy-peer-deps --frozen-lockfile
 
       - name: Derive the rnllama variant allowlist from the payload manifest
         run: |

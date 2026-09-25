@@ -69,13 +69,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
       - name: Install Yarn
         run: npm install -g yarn
 
       # Step 3: Install dependencies and iOS Pods
       - name: Install dependencies
-        run: yarn install
+        run: npm install --legacy-peer-deps
 
       # Step 4: Validate l10n files
       - name: Validate l10n files
@@ -125,7 +125,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 # Cache node_modules
       - name: Cache node_modules
         uses: actions/cache@v3
@@ -137,7 +137,7 @@ jobs:
         run: npm install -g yarn
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install --legacy-peer-deps
 
       - name: Derive the rnllama variant allowlist from the payload manifest
         run: |
@@ -342,7 +342,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 # Cache node_modules
       - name: Cache node_modules
         uses: actions/cache@v3
@@ -354,7 +354,7 @@ jobs:
         run: npm install -g yarn
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install --legacy-peer-deps
       
       - name: Create Env.xcconfig
         run: |

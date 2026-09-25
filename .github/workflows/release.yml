@@ -67,10 +67,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 # Step 4: Install dependencies using Yarn
       - name: Install dependencies
-        run: yarn install
+        run: npm install --legacy-peer-deps
 
       # Step 4b: The manifest that the payload gate enforces also decides which
       # rnllama variants are worth compiling — one declaration, both uses.
@@ -276,10 +276,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 # Step 3: Install dependencies using Yarn
       - name: Install dependencies
-        run: yarn install
+        run: npm install --legacy-peer-deps
 
       # Step 4: Set up Ruby and Bundler
       - name: Set up Ruby
