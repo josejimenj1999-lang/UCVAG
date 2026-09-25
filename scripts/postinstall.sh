@@ -10,3 +10,18 @@ if [ ! -d "$OPENCL_HEADERS_DIR" ]; then
 else
     echo "OpenCL headers already present."
 fi
+
+# Apply the ONNX Runtime Gradle compatibility fix.
+node <<'NODE'
+const fs = require('fs');
+
+const file = 'node_modules/onnxruntime-react-native/android/build.gradle';
+if (fs.existsSync(file)) {
+    let content = fs.readFileSync(file, 'utf8');
+    content = content.replace(
+        /if\s*\(\s*VersionNumber\.parse\(REACT_NATIVE_VERSION\)\s*<\s*VersionNumber\.parse\("0\.71"\)\s*\)/g,
+        '  def rnVersionParts = REACT_NATIVE_VERSION.split("\\\\.");\n  if (rnVersionParts[0].toInteger() == 0 && rnVersionParts[1].toInteger() < 71)',
+    );
+    fs.writeFileSync(file, content, 'utf8');
+}
+NODE
