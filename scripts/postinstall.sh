@@ -25,3 +25,18 @@ if (fs.existsSync(file)) {
     fs.writeFileSync(file, content, 'utf8');
 }
 NODE
+
+# Patch GetSymbolicDimensions in ONNX Runtime C++.
+node <<'NODE'
+const fs = require('fs');
+
+const file = 'node_modules/onnxruntime-react-native/cpp/InferenceSessionHostObject.cpp';
+if (fs.existsSync(file)) {
+    let content = fs.readFileSync(file, 'utf8');
+    content = content.replace(
+        /auto\s+symbolicDimensions\s*=\s*tensorInfo\.GetSymbolicDimensions\(\);/g,
+        'std::vector<std::string> symbolicDimensions;',
+    );
+    fs.writeFileSync(file, content, 'utf8');
+}
+NODE
