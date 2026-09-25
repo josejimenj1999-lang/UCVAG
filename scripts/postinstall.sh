@@ -34,7 +34,7 @@ const file = 'node_modules/onnxruntime-react-native/cpp/InferenceSessionHostObje
 if (fs.existsSync(file)) {
     let content = fs.readFileSync(file, 'utf8');
     content = content.replace(
-        /auto\s+symbolicDimensions\s*=\s*tensorInfo\.GetSymbolicDimensions\(\);/g,
+        /auto\s+symbolicDimensions\s*=\s*tensorInfo(?:\.|->)GetSymbolicDimensions\(\);/g,
         'std::vector<std::string> symbolicDimensions;',
     );
     fs.writeFileSync(file, content, 'utf8');
