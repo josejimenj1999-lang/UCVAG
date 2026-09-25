@@ -30,13 +30,23 @@ NODE
 node <<'NODE'
 const fs = require('fs');
 
-const file = 'node_modules/onnxruntime-react-native/cpp/InferenceSessionHostObject.cpp';
-if (fs.existsSync(file)) {
-    let content = fs.readFileSync(file, 'utf8');
-    content = content.replace(
-        /auto\s+symbolicDimensions\s*=\s*tensorInfo(?:\.|->)GetSymbolicDimensions\(\);/g,
-        'std::vector<std::string> symbolicDimensions;',
-    );
-    fs.writeFileSync(file, content, 'utf8');
+const files = [
+    'node_modules/onnxruntime-react-native/cpp/TensorUtils.cpp',
+    'node_modules/onnxruntime-react-native/cpp/InferenceSessionHostObject.cpp',
+];
+
+for (const file of files) {
+    if (fs.existsSync(file)) {
+        let content = fs.readFileSync(file, 'utf8');
+        content = content.replace(
+            /\bValue\s+([a-zA-Z0-9_]+)\s*;/g,
+            'Value $1(nullptr);',
+        );
+        content = content.replace(
+            /auto\s+symbolicDimensions\s*=\s*tensorInfo(?:\.|->)GetSymbolicDimensions\(\);/g,
+            'std::vector<std::string> symbolicDimensions;',
+        );
+        fs.writeFileSync(file, content, 'utf8');
+    }
 }
 NODE
